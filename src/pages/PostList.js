@@ -14,6 +14,7 @@ import {
   Input,
   useColorMode,
   useTheme,
+  Divider,
 } from "@chakra-ui/core";
 import React, { useEffect, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
@@ -39,7 +40,7 @@ const PostList = ({ isDrawerOpen, closeDrawer }) => {
       h="100%"
     >
       {isLoading ? (
-        "Loading.."
+        <div data-testid="loading-text" >Loading..</div>
       ) : (
         <List
           d={{
@@ -55,7 +56,7 @@ const PostList = ({ isDrawerOpen, closeDrawer }) => {
         >
           {data.data.map((listItem) => {
             return (
-              <ListItem key={listItem.id}>
+              <ListItem data-testid="list-item" key={listItem.id}>
                 <Link
                   padding=".8rem"
                   display="flex"
